@@ -1,0 +1,2 @@
+class Hippoport < ApplicationRecord
+end
