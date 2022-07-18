@@ -1,13 +1,10 @@
 <h1>Index Flights</h1>
 
 <%= form_with url: "/flights", method: :get do |f|%>
-    <%= f.label(:departure, "Départ") %>
-    <%= f.select(:departure, @departure_hippoports) %>
-    <%= f.label(:arrival, "Arrivée") %>
-    <%= f.select(:arrival, @arrival_hippoports) %>
-    <%= f.label(:arrival, "Nombre de sorciers") %>
-    <%= f.number_field :nb_wizards %>
-    <%= f.label(:arrival, "Date de départ") %>
-    <%= f.select(:date_dropdown, @date_dropdown) %>
+    <%= select_tag(:from_airport_id, options_for_select(@hippoport_options, selected: params[:from_airport_id]), { prompt: 'From?' }) %>
+    <%= select_tag(:to_airport_id, options_for_select(@hippoport_options, selected: params[:to_airport_id]), { prompt: 'To?' }) %>
+    <%= select_tag(:nb_passengers, options_for_select(1..4, selected: params[:nb_passengers]), { prompt: 'Passengers' }) %>
+    <%= select_tag(:date_departure, options_for_select(@date_departure, selected: params[:date_departure]), { prompt: 'Date' }) %>
+
     <%= f.submit "Rechercher un vol !" %>
 <% end %>
