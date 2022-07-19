@@ -16,14 +16,20 @@
 
 <h1>Qui voyage ?</h1>
 
-<%= form_with model: @booking do |f| %>
-    <%= hidden_field_tag(:flight_id, @selected_flight) %>
+<%= form_with model: Booking.new do |f| %>
+    <%= hidden_field_tag(:flight_id, @selected_flight.id) %>
     <%= hidden_field_tag(:nbpassengers, @nb_passengers) %>
-    <% @nb_passengers.times do %>
-        <%= f.fields_for @booking.wizards.build do |sub_form| %>
-            <%= sub_form.text_field :name %>
-            <%= sub_form.text_field :email %>
-        <% end %>
+    <% @nb_passengers.times do |i| %>
+        <div class="container m-4">
+            <h2><strong>Wizard <%= i+1 %></strong></h2>
+        
+            <%= f.fields_for @booking.wizards.build do |sub_form| %>
+                <%= sub_form.label :name, "Name" %>
+                <%= sub_form.text_field :name %>
+                <%= sub_form.label :email, "Email" %>
+                <%= sub_form.text_field :email %>
+            <% end %>
+        </div>
     <% end %>
     <%= f.submit "Valider les informations des passagers"%>
 <% end %>
