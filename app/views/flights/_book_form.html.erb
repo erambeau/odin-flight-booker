@@ -1,0 +1,26 @@
+<%= form_with url: "/booking", method: :post do |booking|%>
+    <div class="control">
+        <% @matching_flights.each do |f| %>
+            <div class="columns is-vcentered">
+                <div class="column is-one-fifth ml-6">
+                    <%= radio_button_tag(:selected_flight, f.id)%>
+                </div>
+                <div class="column">
+                    <div class="card m-2">
+                        <div class="card-header">
+                            <%= @hippoports.find(f.hippoport_depart_id).code %> - <%= @hippoports.find(f.hippoport_arrival_id).code%>
+                        </div>
+                        <div class="card-content">
+                            <%= f.datetime_depart %>
+                            <%= f.duration %>
+                        </div>
+                        <div class="card-footer">
+                            <%= f.id %>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <% end %>
+    </div>
+    <%= booking.submit "Choisir ce vol !" %>
+<% end %>

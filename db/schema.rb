@@ -10,7 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_07_15_140943) do
+ActiveRecord::Schema[7.0].define(version: 2022_07_19_135459) do
+  create_table "bookings", force: :cascade do |t|
+    t.integer "flight_id", null: false
+    t.integer "wizard_id", null: false
+    t.integer "nbpassengers"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["flight_id"], name: "index_bookings_on_flight_id"
+    t.index ["wizard_id"], name: "index_bookings_on_wizard_id"
+  end
+
   create_table "flights", force: :cascade do |t|
     t.datetime "datetime_depart"
     t.integer "duration"
@@ -28,6 +38,15 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_15_140943) do
     t.datetime "updated_at", null: false
   end
 
-  add_foreign_key :flights, :hippoports, column: :hippoport_arrival_id
-  add_foreign_key :flights, :hippoports, column: :hippoport_depart_id
+  create_table "wizards", force: :cascade do |t|
+    t.string "name"
+    t.string "email"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_foreign_key "bookings", "flights"
+  add_foreign_key "bookings", "wizards"
+  add_foreign_key "flights", "hippoports", column: "hippoport_arrival_id"
+  add_foreign_key "flights", "hippoports", column: "hippoport_depart_id"
 end

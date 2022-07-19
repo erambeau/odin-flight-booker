@@ -2,6 +2,7 @@ class FlightsController < ApplicationController
 
     def index
         @flights = Flight.all
+        @hippoports = Hippoport.all
         @hippoport_options = Hippoport.all.map{ |h| [ h.code, h.id ] }
         @date_departure = Flight.all.map{ |f| f.formatted_date }.uniq.sort
 
@@ -27,7 +28,6 @@ class FlightsController < ApplicationController
                                                  , datetime_depart: @selected_date.all_day  )
             end
         end
-
     end
 
 end
