@@ -6,4 +6,9 @@ class Flight < ApplicationRecord
     datetime_depart.strftime("%d/%m/%Y")
   end
 
+  def datetime_depart_to_date
+    datetime_depart.to_date
+  end
+
+
 end

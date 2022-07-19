@@ -13,8 +13,7 @@ Hippoport.create(code: 'PLD')
 Hippoport.create(code: 'BXB')
 Hippoport.create(code: 'DSG')
 
-# PLD - BXB - 2022-07-17
-
+# PLD - BXB - 2022-07-16
 
 Flight.create(datetime_depart: "2022-07-16 05:00:00" \
            ,  duration: 18000 \
@@ -26,72 +25,62 @@ Flight.create(datetime_depart: "2022-07-16 12:00:00" \
            ,  hippoport_depart_id: Hippoport.where(code: "PLD").ids[0] \
            ,  hippoport_arrival_id: Hippoport.where(code: "BXB").ids[0]    )
 
-
 Flight.create(datetime_depart: "2022-07-16 19:00:00" \
-,  duration: 18000 \
-,  hippoport_depart_id: Hippoport.where(code: "PLD").ids[0] \
-,  hippoport_arrival_id: Hippoport.where(code: "BXB").ids[0]    )
-
+            ,  duration: 18000 \
+            ,  hippoport_depart_id: Hippoport.where(code: "PLD").ids[0] \
+            ,  hippoport_arrival_id: Hippoport.where(code: "BXB").ids[0]    )
 
 Flight.create(datetime_depart: "2022-07-23 05:00:00" \
-,  duration: 18000 \
-,  hippoport_depart_id: Hippoport.where(code: "PLD").ids[0] \
-,  hippoport_arrival_id: Hippoport.where(code: "BXB").ids[0]    )
-
+            ,  duration: 18000 \
+            ,  hippoport_depart_id: Hippoport.where(code: "PLD").ids[0] \
+            ,  hippoport_arrival_id: Hippoport.where(code: "BXB").ids[0]    )
 
 Flight.create(datetime_depart: "2022-07-20 05:00:00" \
-    ,  duration: 18000 \
-    ,  hippoport_depart_id: Hippoport.where(code: "BXB").ids[0] \
-    ,  hippoport_arrival_id: Hippoport.where(code: "PLD").ids[0]    )
+            ,  duration: 18000 \
+            ,  hippoport_depart_id: Hippoport.where(code: "BXB").ids[0] \
+            ,  hippoport_arrival_id: Hippoport.where(code: "PLD").ids[0]    )
 
 Flight.create(datetime_depart: "2022-07-27 05:00:00" \
-,  duration: 18000 \
-,  hippoport_depart_id: Hippoport.where(code: "BXB").ids[0] \
-,  hippoport_arrival_id: Hippoport.where(code: "PLD").ids[0]    )
-
-
+            ,  duration: 18000 \
+            ,  hippoport_depart_id: Hippoport.where(code: "BXB").ids[0] \
+            ,  hippoport_arrival_id: Hippoport.where(code: "PLD").ids[0]    )
 
 Flight.create(datetime_depart: "2022-07-18 05:00:00" \
-    ,  duration: 27000 \
-    ,  hippoport_depart_id: Hippoport.where(code: "PLD").ids[0] \
-    ,  hippoport_arrival_id: Hippoport.where(code: "DSG").ids[0]    )
+            ,  duration: 27000 \
+            ,  hippoport_depart_id: Hippoport.where(code: "PLD").ids[0] \
+            ,  hippoport_arrival_id: Hippoport.where(code: "DSG").ids[0]    )
 
 Flight.create(datetime_depart: "2022-07-25 05:00:00" \
-,  duration: 27000 \
-,  hippoport_depart_id: Hippoport.where(code: "PLD").ids[0] \
-,  hippoport_arrival_id: Hippoport.where(code: "DSG").ids[0]    )
-
+            ,  duration: 27000 \
+            ,  hippoport_depart_id: Hippoport.where(code: "PLD").ids[0] \
+            ,  hippoport_arrival_id: Hippoport.where(code: "DSG").ids[0]    )
 
 Flight.create(datetime_depart: "2022-07-22 05:00:00" \
-,  duration: 27000 \
-,  hippoport_depart_id: Hippoport.where(code: "DSG").ids[0] \
-,  hippoport_arrival_id: Hippoport.where(code: "PLD").ids[0]    )
+            ,  duration: 27000 \
+            ,  hippoport_depart_id: Hippoport.where(code: "DSG").ids[0] \
+            ,  hippoport_arrival_id: Hippoport.where(code: "PLD").ids[0]    )
 
 Flight.create(datetime_depart: "2022-07-29 05:00:00" \
-,  duration: 27000 \
-,  hippoport_depart_id: Hippoport.where(code: "DSG").ids[0] \
-,  hippoport_arrival_id: Hippoport.where(code: "PLD").ids[0]    )
-
-
-
+            ,  duration: 27000 \
+            ,  hippoport_depart_id: Hippoport.where(code: "DSG").ids[0] \
+            ,  hippoport_arrival_id: Hippoport.where(code: "PLD").ids[0]    )
 
 Flight.create(datetime_depart: "2022-07-19 05:00:00" \
-    ,  duration: 12000 \
-    ,  hippoport_depart_id: Hippoport.where(code: "BXB").ids[0] \
-    ,  hippoport_arrival_id: Hippoport.where(code: "DSG").ids[0]    )
+            ,  duration: 12000 \
+            ,  hippoport_depart_id: Hippoport.where(code: "BXB").ids[0] \
+            ,  hippoport_arrival_id: Hippoport.where(code: "DSG").ids[0]    )
 
 Flight.create(datetime_depart: "2022-07-26 05:00:00" \
-,  duration: 12000 \
-,  hippoport_depart_id: Hippoport.where(code: "BXB").ids[0] \
-,  hippoport_arrival_id: Hippoport.where(code: "DSG").ids[0]    )
-
+            ,  duration: 12000 \
+            ,  hippoport_depart_id: Hippoport.where(code: "BXB").ids[0] \
+            ,  hippoport_arrival_id: Hippoport.where(code: "DSG").ids[0]    )
 
 Flight.create(datetime_depart: "2022-07-23 05:00:00" \
-,  duration: 12000 \
-,  hippoport_depart_id: Hippoport.where(code: "DSG").ids[0] \
-,  hippoport_arrival_id: Hippoport.where(code: "BXB").ids[0]    )
+            ,  duration: 12000 \
+            ,  hippoport_depart_id: Hippoport.where(code: "DSG").ids[0] \
+            ,  hippoport_arrival_id: Hippoport.where(code: "BXB").ids[0]    )
 
 Flight.create(datetime_depart: "2022-07-30 05:00:00" \
-,  duration: 12000 \
-,  hippoport_depart_id: Hippoport.where(code: "DSG").ids[0] \
-,  hippoport_arrival_id: Hippoport.where(code: "BXB").ids[0]    )
+            ,  duration: 12000 \
+            ,  hippoport_depart_id: Hippoport.where(code: "DSG").ids[0] \
+            ,  hippoport_arrival_id: Hippoport.where(code: "BXB").ids[0]    )

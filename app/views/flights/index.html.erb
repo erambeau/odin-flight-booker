@@ -1,10 +1,17 @@
 <h1>Index Flights</h1>
 
 <%= form_with url: "/flights", method: :get do |f|%>
-    <%= select_tag(:from_airport_id, options_for_select(@hippoport_options, selected: params[:from_airport_id]), { prompt: 'From?' }) %>
-    <%= select_tag(:to_airport_id, options_for_select(@hippoport_options, selected: params[:to_airport_id]), { prompt: 'To?' }) %>
+    <%= hidden_field_tag(:form_submitted_at_least_one_time) %>
+    <%= select_tag(:from_hippoport_id, options_for_select(@hippoport_options, selected: params[:from_hippoport_id]), { prompt: 'From?' }) %>
+    <%= select_tag(:to_hippoport_id, options_for_select(@hippoport_options, selected: params[:to_hippoport_id]), { prompt: 'To?' }) %>
     <%= select_tag(:nb_passengers, options_for_select(1..4, selected: params[:nb_passengers]), { prompt: 'Passengers' }) %>
     <%= select_tag(:date_departure, options_for_select(@date_departure, selected: params[:date_departure]), { prompt: 'Date' }) %>
 
     <%= f.submit "Rechercher un vol !" %>
+<% end %>
+
+<% if defined?(@matching_flights) %>
+    <% @matching_flights.each do |f| %>
+        <%= f.id %>
+    <% end %>
 <% end %>
