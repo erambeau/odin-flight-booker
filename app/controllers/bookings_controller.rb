@@ -10,8 +10,7 @@ class BookingsController < ApplicationController
         @selected_flight = Flight.find(params[:selected_flight])
         @nb_passengers = params[:nb_passengers].to_i
 
-        #@wizards = Array.new(@nb_passengers) { Wizard.new }
-        #@wizard = Wizard.new
+        @nb_passengers.times { @booking.wizards.build }
 
     end
 
@@ -19,7 +18,7 @@ class BookingsController < ApplicationController
         @booking = Booking.new(booking_params)
 
         if @booking.save
-            redirect_to root_path
+            flash.now[:notice] = "New Booking created."
         else
             flash.now[:alert] = @booking.errors.full_messages
         end  
@@ -27,7 +26,7 @@ class BookingsController < ApplicationController
 
     private
 	def booking_params
-		params.require(:booking).permit(:flight_id, :nbpassengers, :wizard, wizards: [:name, :email])
+		params.require(:booking).permit(:flight_id, :nbpassengers, wizards_attributes: [:name, :email])
 	end
 
 end
