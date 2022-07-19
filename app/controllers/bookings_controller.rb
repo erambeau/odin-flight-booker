@@ -18,15 +18,22 @@ class BookingsController < ApplicationController
         @booking = Booking.new(booking_params)
 
         if @booking.save
-            flash.now[:notice] = "New Booking created."
+            flash[:notice] = "New Booking created."
+            redirect_to root_path
         else
-            flash.now[:alert] = @booking.errors.full_messages
+            flash[:alert] = @booking.errors.full_messages
+            
+            puts @booking.errors.full_messages
+
+            @error = "Unknown Error"
+
+            #redirect_to new_booking_path
         end  
     end
 
     private
 	def booking_params
-		params.require(:booking).permit(:flight_id, :nbpassengers, wizards_attributes: [:name, :email])
+		params.require(:booking).permit(:flight_id, :nb_passengers, wizards_attributes: [:name, :email])
 	end
 
 end
