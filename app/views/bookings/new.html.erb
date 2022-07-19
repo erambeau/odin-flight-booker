@@ -1,0 +1,30 @@
+<h1>Hello from new booking</h1>
+
+<div class="card m-2">
+    <div class="card-header">
+        <%= @hippoports.find(@selected_flight.hippoport_depart_id).code %> - <%= @hippoports.find(@selected_flight.hippoport_arrival_id).code%>
+    </div>
+    <div class="card-content">
+        <%= @selected_flight.datetime_depart %>
+        <%= @selected_flight.duration %>
+    </div>
+    <div class="card-footer">
+        <%= @selected_flight.id %>
+    </div>
+</div>
+
+
+<h1>Qui voyage ?</h1>
+
+<%= form_with model: @booking do |f| %>
+    <%= hidden_field_tag(:flight_id, @selected_flight) %>
+    <%= hidden_field_tag(:nbpassengers, @nb_passengers) %>
+    <% @nb_passengers.times do %>
+        <%= f.fields_for @booking.wizards.build do |sub_form| %>
+            <%= sub_form.text_field :name %>
+            <%= sub_form.text_field :email %>
+        <% end %>
+    <% end %>
+    <%= f.submit "Valider les informations des passagers"%>
+<% end %>
+

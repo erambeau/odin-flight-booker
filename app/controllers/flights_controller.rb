@@ -26,6 +26,7 @@ class FlightsController < ApplicationController
                 @matching_flights = Flight.where(  hippoport_depart_id: params[:from_hippoport_id] \
                                                  , hippoport_arrival_id: params[:to_hippoport_id] \
                                                  , datetime_depart: @selected_date.all_day  )
+                @nb_passengers = params[:nb_passengers]
             end
         end
     end

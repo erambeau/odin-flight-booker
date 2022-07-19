@@ -1,4 +1,5 @@
-<%= form_with url: "/booking", method: :post do |booking|%>
+<%= form_with url: "/bookings/new", method: :get do |booking|%>
+    <%= hidden_field_tag(:nb_passengers, @nb_passengers) %>
     <div class="control">
         <% @matching_flights.each do |f| %>
             <div class="columns is-vcentered">
@@ -24,3 +25,4 @@
     </div>
     <%= booking.submit "Choisir ce vol !" %>
 <% end %>
+

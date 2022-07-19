@@ -13,12 +13,10 @@
 ActiveRecord::Schema[7.0].define(version: 2022_07_19_135459) do
   create_table "bookings", force: :cascade do |t|
     t.integer "flight_id", null: false
-    t.integer "wizard_id", null: false
     t.integer "nbpassengers"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["flight_id"], name: "index_bookings_on_flight_id"
-    t.index ["wizard_id"], name: "index_bookings_on_wizard_id"
   end
 
   create_table "flights", force: :cascade do |t|
@@ -41,12 +39,15 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_19_135459) do
   create_table "wizards", force: :cascade do |t|
     t.string "name"
     t.string "email"
+    t.integer "booking_id", null: false
+
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["booking_id"], name: "index_bookings_on_booking_id"
   end
 
   add_foreign_key "bookings", "flights"
-  add_foreign_key "bookings", "wizards"
+  add_foreign_key "wizards", "bookings"
   add_foreign_key "flights", "hippoports", column: "hippoport_arrival_id"
   add_foreign_key "flights", "hippoports", column: "hippoport_depart_id"
 end
