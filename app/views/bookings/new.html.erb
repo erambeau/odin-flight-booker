@@ -17,8 +17,8 @@
 <h1>Qui voyage ?</h1>
 
 <%= form_for @booking do |booking_form| %>
-    <%= hidden_field_tag(:flight_id, @selected_flight.id) %>
-    <%= hidden_field_tag(:nb_passengers, @nb_passengers) %>
+    <%= booking_form.hidden_field :flight_id, value: @selected_flight.id %>
+    <%= booking_form.hidden_field :nb_passengers, value: @nb_passengers %>
         <div class="container m-4">
             <% i=1 %>
             <%= booking_form.fields_for :wizards do |wizard_form| %>
